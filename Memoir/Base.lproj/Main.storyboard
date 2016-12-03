@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="YBg-OP-J3c">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="wen-Yw-1pK">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -238,146 +238,20 @@
                         <color key="backgroundColor" red="0.86727378234882901" green="0.98533076047897339" blue="0.89434800276086868" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <segue destination="YBg-OP-J3c" kind="custom" id="djs-zU-Vwr"/>
+                        <segue destination="H4x-cP-gdZ" kind="modal" id="Vbb-vk-JEG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gk0-dU-ySz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="608" y="155"/>
         </scene>
-        <!--Compose View Controller-->
-        <scene sceneID="rSS-ey-V2F">
-            <objects>
-                <viewController id="YBg-OP-J3c" userLabel="Compose View Controller" customClass="ComposeViewController" customModule="Memoir" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="J5m-r8-P1V">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" id="y4f-gt-Mar">
-                                <rect key="frame" x="0.0" y="20" width="320" height="486"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OVn-DU-ti5" userLabel="Save Button">
-                                <rect key="frame" x="272" y="518" width="34" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Save"/>
-                                <connections>
-                                    <action selector="didTapSave:" destination="YBg-OP-J3c" eventType="touchUpInside" id="qTn-2y-y90"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="qsX-jE-xTO" appends="YES" id="9zm-1S-Ps8"/>
-                        </connections>
-                    </view>
-                    <connections>
-                        <outlet property="saveButton" destination="OVn-DU-ti5" id="uQg-4w-RMS"/>
-                        <outlet property="textView" destination="y4f-gt-Mar" id="pDi-jr-xs8"/>
-                        <segue destination="DNi-jq-rZG" kind="modal" identifier="LastEntrySegue" id="V1A-Pv-Uqj"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lde-nD-yLh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="qsX-jE-xTO">
-                    <connections>
-                        <action selector="onDidPan:" destination="YBg-OP-J3c" id="9S2-15-s0K"/>
-                    </connections>
-                </panGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="1162" y="154"/>
-        </scene>
-        <!--Storyboard Reference-->
+        <!--EntryTable-->
         <scene sceneID="30C-OW-e8z">
             <objects>
-                <viewControllerPlaceholder id="H4x-cP-gdZ" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="EntryTable" storyboardName="EntryTable" id="H4x-cP-gdZ" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EmT-We-1k2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1606" y="-1010"/>
-        </scene>
-        <!--Calendar-->
-        <scene sceneID="JYy-Uy-bC3">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="Calendar" storyboardName="Calendar" id="h55-2L-DhU" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pcu-N9-E9i" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1163" y="-1113"/>
-        </scene>
-        <!--Saved Entries View Controller-->
-        <scene sceneID="nwF-jP-Feg">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cEX-1c-KMQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="l3F-Ww-UqK">
-                    <connections>
-                        <action selector="didPanView:" destination="DNi-jq-rZG" id="zq0-dj-K96"/>
-                    </connections>
-                </panGestureRecognizer>
-                <viewController id="DNi-jq-rZG" customClass="SavedEntriesViewController" customModule="Memoir" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="I2g-0X-Oia">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="123" sectionHeaderHeight="28" sectionFooterHeight="28" id="Fjq-AT-CoK">
-                                <rect key="frame" x="0.0" y="175" width="320" height="393"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <gestureRecognizers/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DayTableViewCell" rowHeight="123" id="zAE-jc-yQu" userLabel="Saved Entry Cell" customClass="DayTableViewCell" customModule="Memoir" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="123"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zAE-jc-yQu" id="gb2-75-vME">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="122.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="taj-Cc-dmd">
-                                                    <rect key="frame" x="24" y="0.0" width="197" height="39"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WtV-UB-72B">
-                                                    <rect key="frame" x="24" y="62" width="273" height="52"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="alb-5Y-txb">
-                                                    <rect key="frame" x="34" y="-187" width="90" height="28"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button"/>
-                                                </button>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <gestureRecognizers/>
-                                        <connections>
-                                            <outlet property="postDateLabel" destination="taj-Cc-dmd" id="9BK-ur-j5f"/>
-                                            <outlet property="postTextLabel" destination="WtV-UB-72B" id="Y0k-8N-V0U"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="l3F-Ww-UqK" appends="YES" id="VGZ-AZ-nug"/>
-                        </connections>
-                    </view>
-                    <connections>
-                        <outlet property="tableView" destination="Fjq-AT-CoK" id="0Hm-7X-Que"/>
-                        <segue destination="YBg-OP-J3c" kind="modal" id="M1q-qc-u7A"/>
-                    </connections>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="1162" y="-589"/>
         </scene>
     </scenes>
     <resources>
@@ -391,6 +265,5 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="Aap-q2-9Tj"/>
-        <segue reference="M1q-qc-u7A"/>
     </inferredMetricsTieBreakers>
 </document>
