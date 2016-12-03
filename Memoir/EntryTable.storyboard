@@ -45,6 +45,7 @@
                     <connections>
                         <outlet property="dateLabel" destination="UBR-9V-7Cf" id="49F-lc-XRW"/>
                         <outlet property="textView" destination="ZBq-Tt-a1k" id="X6p-j7-PXr"/>
+                        <segue destination="owT-fk-5i2" kind="presentation" identifier="LastEntrySegue" id="iWU-0p-oqI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OH0-u9-Lcx" sceneMemberID="firstResponder"/>
@@ -159,6 +160,7 @@
                         <outlet property="postTimes" destination="YJP-7i-4xn" id="zgJ-KG-7xg"/>
                         <outlet property="postWords" destination="qmR-sA-um8" id="ZTQ-FS-miG"/>
                         <outlet property="tableView" destination="mm7-6U-eOJ" id="rJE-Qf-pgC"/>
+                        <segue destination="R40-tw-1RB" kind="presentation" identifier="BackToComposeSegue" id="8xX-5o-2F7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Oc-o8-T0b" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -20,17 +20,33 @@ extension Date {
 class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var postWords: UILabel!
+    @IBOutlet weak var postTimes: UILabel!
+    
+    var fadeTransition: FadeTransition!
     
     var notes: [Note]!
+    var currentNote: Note!
     
-    var currentCharacterCount: Int!
-    var newPostCount: Int!
+    
+    //var currentCharacterCount: Int!
+    var todayWordCount: Int = 0            // cumulative word count
+    var todayPostCount: Int = 0           // cumulative post count
+    
+    
     
     let cellReuseIdentifier = "cell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //        notes.append(currentNote)
+        //        print(notes)
         
+        todayPostCount = notes.count
+        todayWordCount = 0
+        for aNote in notes {
+            todayWordCount += aNote.text.numberOfWords()
+        }
         
         // Do any additional setup after loading the view.
         //Set table view to reference needed selves
@@ -38,6 +54,10 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
+        
+        postWords.text = String(todayWordCount)
+        
+        postTimes.text = String(todayPostCount)
         
         
         // get the current date and time
@@ -54,19 +74,20 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
         // print("\(current_date)")
         
     }
-    @IBAction func didPanView(_ sender: UIPanGestureRecognizer) {
-    }
     
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return newPostCount
+        if let notes = notes {
+            return notes.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "DayTableViewCell") as! DayTableViewCell
         
-        let note = notes[indexPath.section]
+        let note = notes[indexPath.row]
         
         //Set time in cell
         
@@ -81,6 +102,37 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
         cell.postTextLabel.text = note.text
         cell.postDateLabel.text = note.date.toString()
         return cell
+    }
+    
+    @IBAction func didTapPan(_ sender: UIPanGestureRecognizer) {
+        performSegue(withIdentifier: "BackToComposeSegue", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Access the ViewController that you will be transitioning too, a.k.a, the destinationViewController.
+        let composeViewController = segue.destination as! ComposeViewController
+        
+        // Set the modal presentation style of your destinationViewController to be custom.
+        composeViewController.modalPresentationStyle = UIModalPresentationStyle.custom
+        
+        // Create a new instance of your fadeTransition.
+        fadeTransition = FadeTransition()
+        
+        // Tell the destinationViewController's  transitioning delegate to look in fadeTransition for transition instructions.
+        composeViewController.transitioningDelegate = fadeTransition
+        
+        // Adjust the transition duration. (seconds)
+        fadeTransition.duration = 1.0
+        
+        
+        composeViewController.appendedNotes = notes
+        composeViewController.notes = notes
+        composeViewController.lastPostCount = todayPostCount
+        composeViewController.lastWordCount = todayWordCount
+        
+        
+        
+        
     }
     
     override func didReceiveMemoryWarning() {

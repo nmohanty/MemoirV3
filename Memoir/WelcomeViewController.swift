@@ -13,6 +13,16 @@ class WelcomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIView.animate(withDuration: 1, delay:
+            0.4, options:
+            [], animations:
+            {
+        //code
+                self.performSegue(withIdentifier: "ToComposeSegue", sender: nil)
+        }
+            , completion:
+        nil)
+        
 
         // Do any additional setup after loading the view.
     }

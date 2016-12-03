@@ -238,7 +238,7 @@
                         <color key="backgroundColor" red="0.86727378234882901" green="0.98533076047897339" blue="0.89434800276086868" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <segue destination="H4x-cP-gdZ" kind="modal" id="Vbb-vk-JEG"/>
+                        <segue destination="H4x-cP-gdZ" kind="modal" identifier="ToComposeSegue" id="Vbb-vk-JEG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gk0-dU-ySz" userLabel="First Responder" sceneMemberID="firstResponder"/>
