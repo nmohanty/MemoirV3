@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 extension Date {
     func toString() -> String {

@@ -238,26 +238,12 @@
                         <color key="backgroundColor" red="0.86727378234882901" green="0.98533076047897339" blue="0.89434800276086868" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <segue destination="BrZ-dw-qIF" kind="modal" id="aaL-ko-oTH"/>
+                        <segue destination="YBg-OP-J3c" kind="custom" id="djs-zU-Vwr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gk0-dU-ySz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="608" y="155"/>
-        </scene>
-        <!--Text Archive View Controller-->
-        <scene sceneID="w6U-SW-oct">
-            <objects>
-                <viewController id="BrZ-dw-qIF" customClass="TextArchiveViewController" customModule="Memoir" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="1JS-ZZ-mit">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Pxi-hY-w1x" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1041" y="531"/>
         </scene>
         <!--Compose View Controller-->
         <scene sceneID="rSS-ey-V2F">
@@ -304,7 +290,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2004" y="554"/>
+            <point key="canvasLocation" x="1162" y="154"/>
         </scene>
         <!--Storyboard Reference-->
         <scene sceneID="30C-OW-e8z">
@@ -312,7 +298,7 @@
                 <viewControllerPlaceholder id="H4x-cP-gdZ" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EmT-We-1k2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2306" y="-993"/>
+            <point key="canvasLocation" x="1606" y="-1010"/>
         </scene>
         <!--Calendar-->
         <scene sceneID="JYy-Uy-bC3">
@@ -320,11 +306,17 @@
                 <viewControllerPlaceholder storyboardIdentifier="Calendar" storyboardName="Calendar" id="h55-2L-DhU" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pcu-N9-E9i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2005" y="-666"/>
+            <point key="canvasLocation" x="1163" y="-1113"/>
         </scene>
         <!--Saved Entries View Controller-->
         <scene sceneID="nwF-jP-Feg">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cEX-1c-KMQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="l3F-Ww-UqK">
+                    <connections>
+                        <action selector="didPanView:" destination="DNi-jq-rZG" id="zq0-dj-K96"/>
+                    </connections>
+                </panGestureRecognizer>
                 <viewController id="DNi-jq-rZG" customClass="SavedEntriesViewController" customModule="Memoir" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I2g-0X-Oia">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -334,12 +326,13 @@
                                 <rect key="frame" x="0.0" y="175" width="320" height="393"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DayTableViewCell" rowHeight="123" id="zAE-jc-yQu" userLabel="Saved Entry Cell" customClass="DayTableViewCell" customModule="Memoir" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="123"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zAE-jc-yQu" id="gb2-75-vME">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="122"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="122.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="taj-Cc-dmd">
@@ -363,6 +356,7 @@
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <gestureRecognizers/>
                                         <connections>
                                             <outlet property="postDateLabel" destination="taj-Cc-dmd" id="9BK-ur-j5f"/>
                                             <outlet property="postTextLabel" destination="WtV-UB-72B" id="Y0k-8N-V0U"/>
@@ -379,16 +373,11 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="Fjq-AT-CoK" id="0Hm-7X-Que"/>
+                        <segue destination="YBg-OP-J3c" kind="modal" id="M1q-qc-u7A"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cEX-1c-KMQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="l3F-Ww-UqK">
-                    <connections>
-                        <action selector="didPanView:" destination="DNi-jq-rZG" id="zq0-dj-K96"/>
-                    </connections>
-                </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2034" y="-240"/>
+            <point key="canvasLocation" x="1162" y="-589"/>
         </scene>
     </scenes>
     <resources>
@@ -401,6 +390,7 @@
         <simulatedScreenMetrics key="destination" type="retina4_0.fullscreen"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="y6j-Mn-SfO"/>
+        <segue reference="Aap-q2-9Tj"/>
+        <segue reference="M1q-qc-u7A"/>
     </inferredMetricsTieBreakers>
 </document>

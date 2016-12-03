@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		8DBD666F3FBA2FA3AB6155F5 /* Pods_MemoirUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F4226876A85D2C610E7F38 /* Pods_MemoirUITests.framework */; };
 		9335AB191DEFCFC4007D46F4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9335AB181DEFCFC4007D46F4 /* LoginViewController.swift */; };
-		9335AB1B1DEFE321007D46F4 /* TextArchiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9335AB1A1DEFE321007D46F4 /* TextArchiveViewController.swift */; };
 		9335AB1D1DEFE882007D46F4 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9335AB1C1DEFE882007D46F4 /* SignupViewController.swift */; };
 		9335AB1F1DEFF938007D46F4 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9335AB1E1DEFF938007D46F4 /* WelcomeViewController.swift */; };
 		9335AB211DEFF9CD007D46F4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9335AB201DEFF9CD007D46F4 /* SettingsViewController.swift */; };
@@ -54,7 +53,6 @@
 		42CF5CB7691CE8241621BF7B /* Pods-Memoir.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memoir.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Memoir/Pods-Memoir.debug.xcconfig"; sourceTree = "<group>"; };
 		5D904EADE59E5ACB971352C4 /* Pods_Memoir.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Memoir.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9335AB181DEFCFC4007D46F4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		9335AB1A1DEFE321007D46F4 /* TextArchiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextArchiveViewController.swift; sourceTree = "<group>"; };
 		9335AB1C1DEFE882007D46F4 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		9335AB1E1DEFF938007D46F4 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		9335AB201DEFF9CD007D46F4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -209,7 +207,6 @@
 				936AEC8B1DEFBAE600900831 /* Main.storyboard */,
 				9335AB2B1DF0DEF9007D46F4 /* Transitions */,
 				9335AB281DF0DE18007D46F4 /* EntryTableView */,
-				9335AB1A1DEFE321007D46F4 /* TextArchiveViewController.swift */,
 				9335AB1E1DEFF938007D46F4 /* WelcomeViewController.swift */,
 				9335AB201DEFF9CD007D46F4 /* SettingsViewController.swift */,
 			);
@@ -527,7 +524,6 @@
 			files = (
 				9335AB3A1DF0F99B007D46F4 /* CalendarViewController.swift in Sources */,
 				9335AB3E1DF1025F007D46F4 /* CalendarCell.swift in Sources */,
-				9335AB1B1DEFE321007D46F4 /* TextArchiveViewController.swift in Sources */,
 				9335AB351DF0E7F0007D46F4 /* BaseTransition.swift in Sources */,
 				9335AB191DEFCFC4007D46F4 /* LoginViewController.swift in Sources */,
 				9335AB271DF0B91C007D46F4 /* DayTableViewCell.swift in Sources */,

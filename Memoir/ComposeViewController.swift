@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 struct Note {
     var date = Date()
