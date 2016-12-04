@@ -22,11 +22,24 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var postWords: UILabel!
     @IBOutlet weak var postTimes: UILabel!
+    @IBOutlet weak var wordstxtLabel: UILabel!
     
     var fadeTransition: FadeTransition!
     
+    //var bubbleTransition: BubbleTransition!
+    
+    
+    
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var blackBox: UIView!
+    @IBOutlet weak var bubbleImageView: UIImageView!
     var notes: [Note]!
     var currentNote: Note!
+    
+    var imageView: UIImageView!
+    var bubbleOriginalCenter: CGPoint!
+    var viewOriginalCenter: CGPoint!
+    var countLabel: UILabel!
     
     
     //var currentCharacterCount: Int!
@@ -41,6 +54,13 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
         //        notes.append(currentNote)
         //        print(notes)
+        blackBox.alpha = 0
+        bubbleOriginalCenter = bubbleImageView.center
+        imageView.image = bubbleImageView.image
+        countLabel.text = postWords.text
+        postWords.center = bubbleImageView.center
+        wordstxtLabel.center.y = bubbleImageView.center.y - 100
+        viewOriginalCenter = containerView.center
         
         todayPostCount = notes.count
         todayWordCount = 0
@@ -73,7 +93,46 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
         //currentDateTitleLable.text = "\(current_date)"
         // print("\(current_date)")
         
+        //add swipe gesture initialisers
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        let swipeLeft = UISwipeGestureRecognizer(target:self, action:#selector(self.respondToSwipeGesture))
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.left
+        self.view.addGestureRecognizer(swipeLeft)
+        
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        swipeDown.direction = UISwipeGestureRecognizerDirection.down
+        self.view.addGestureRecognizer(swipeDown)
+        
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        swipeUp.direction = UISwipeGestureRecognizerDirection.up
+        self.view.addGestureRecognizer(swipeUp)
+        
     }
+    
+    func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizerDirection.right:
+                print("Swiped right")
+                
+            case UISwipeGestureRecognizerDirection.down:
+                print("Swiped down")
+            case UISwipeGestureRecognizerDirection.left:
+                print("Swiped left")
+            case UISwipeGestureRecognizerDirection.up:
+                print("Swiped up")
+                
+            default:
+                break
+            }
+        }
+    }
+    
+    
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let notes = notes {
@@ -82,6 +141,8 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
             return 0
         }
     }
+    
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -104,31 +165,128 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
         return cell
     }
     
+    
+    
     @IBAction func didTapPan(_ sender: UIPanGestureRecognizer) {
-        performSegue(withIdentifier: "BackToComposeSegue", sender: nil)
+        let translation = sender.translation(in: view)
+        
+        //imageView = sender.view as! UIImageView
+        // imageView.frame = sender.view!.frame
+        
+        if sender.state == .began {
+            //this is called only once
+            //imageView.center = bubbleImageView.icenter
+            self.view.center = self.viewOriginalCenter
+        }
+            
+        else if sender.state == .changed {
+            
+            //called cont as we pan
+            bubbleImageView.center = CGPoint(x: bubbleOriginalCenter.x, y: bubbleOriginalCenter.y + translation.y)
+            postWords.center = bubbleImageView.center
+            wordstxtLabel.center.y = bubbleImageView.center.y - 100
+            containerView.center = CGPoint(x: self.view.center.x, y: self.view.center.y + translation.y)
+            if translation.y > 0 && translation.y < 100 {
+                blackBox.alpha = 0
+                containerView.alpha = convertValue(inputValue: translation.y, r1Min: 0, r1Max: 100, r2Min: 1, r2Max: 0.4)
+                
+            }
+            else
+            {
+                blackBox.alpha = 0
+                containerView.alpha = convertValue(inputValue: translation.y, r1Min: 0, r1Max: -100, r2Min: 1, r2Max: 0.4)
+                UIView.animate(withDuration:
+                    0.8, delay:
+                    0, usingSpringWithDamping:
+                    0.5, initialSpringVelocity:
+                    1, options: [], animations: {
+                        self.blackBox.isHidden = false
+                        self.containerView.alpha = 0
+                        
+                }, completion: nil)
+                self.performSegue(withIdentifier: "ToCalendarSegue", sender: nil)
+            }
+            
+            //print("x: \(location.x), y: \(location.y)")
+        }
+            
+        else if sender.state == .ended {
+            //called once
+            if translation.y < 100 {
+                
+                blackBox.isHidden = true
+                
+                UIView.animate(withDuration:
+                    0.4, delay:
+                    0, usingSpringWithDamping:
+                    0.5, initialSpringVelocity:
+                    1, options: [], animations: {
+                        self.containerView.center = self.viewOriginalCenter
+                        self.view.center = self.viewOriginalCenter
+                        self.bubbleImageView.center = self.bubbleOriginalCenter
+                        self.postWords.center = self.bubbleImageView.center
+                        self.wordstxtLabel.center.y = self.bubbleImageView.center.y - 100
+                }, completion: nil)
+            }
+                
+            else
+            {
+                print("dismiss on scroll")
+                
+                UIView.animate(withDuration:
+                    0.8, delay:
+                    0, usingSpringWithDamping:
+                    0.5, initialSpringVelocity:
+                    1, options: [], animations: {
+                        self.blackBox.isHidden = false
+                        self.containerView.alpha = 0
+                        
+                }, completion: nil)
+                self.performSegue(withIdentifier: "ToCalendarSegue", sender: nil)
+            }
+            
+            //print("x: \(location.x), y: \(location.y)")
+            
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Access the ViewController that you will be transitioning too, a.k.a, the destinationViewController.
-        let composeViewController = segue.destination as! ComposeViewController
-        
-        // Set the modal presentation style of your destinationViewController to be custom.
-        composeViewController.modalPresentationStyle = UIModalPresentationStyle.custom
-        
-        // Create a new instance of your fadeTransition.
-        fadeTransition = FadeTransition()
-        
-        // Tell the destinationViewController's  transitioning delegate to look in fadeTransition for transition instructions.
-        composeViewController.transitioningDelegate = fadeTransition
-        
-        // Adjust the transition duration. (seconds)
-        fadeTransition.duration = 1.0
-        
-        
-        composeViewController.appendedNotes = notes
-        composeViewController.notes = notes
-        composeViewController.lastPostCount = todayPostCount
-        composeViewController.lastWordCount = todayWordCount
+        if segue.identifier == "ToCalendarSegue" {
+            // pass data to next view
+            let calendarViewController = segue.destination as! CalendarViewController
+            calendarViewController.modalPresentationStyle = UIModalPresentationStyle.custom
+            fadeTransition = FadeTransition()
+            calendarViewController.transitioningDelegate = fadeTransition
+            fadeTransition.duration = 1.0
+            calendarViewController.appendedNotes = notes
+            calendarViewController.notes = notes
+            calendarViewController.lastPostCount = todayPostCount
+            calendarViewController.lastWordCount = todayWordCount
+            
+            //calendarViewController.imageView.image = self.imageView.image
+        }
+        else{
+            let composeViewController = segue.destination as! ComposeViewController
+            
+            // Set the modal presentation style of your destinationViewController to be custom.
+            composeViewController.modalPresentationStyle = UIModalPresentationStyle.custom
+            
+            // Create a new instance of your fadeTransition.
+            fadeTransition = FadeTransition()
+            
+            // Tell the destinationViewController's  transitioning delegate to look in fadeTransition for transition instructions.
+            composeViewController.transitioningDelegate = fadeTransition
+            
+            // Adjust the transition duration. (seconds)
+            fadeTransition.duration = 1.0
+            
+            
+            composeViewController.appendedNotes = notes
+            composeViewController.notes = notes
+            composeViewController.lastPostCount = todayPostCount
+            composeViewController.lastWordCount = todayWordCount
+        }
         
         
         
@@ -152,3 +310,4 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
      */
     
 }
+
