@@ -13,19 +13,51 @@ class WelcomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        UIView.animate(withDuration: 1, delay:
-            0.4, options:
-            [], animations:
-            {
-        //code
-                self.performSegue(withIdentifier: "ToComposeSegue", sender: nil)
-        }
-            , completion:
-        nil)
         
+        //code
+    
 
         // Do any additional setup after loading the view.
+        //add swipe gesture initialisers
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        let swipeLeft = UISwipeGestureRecognizer(target:self, action:#selector(self.respondToSwipeGesture))
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.left
+        self.view.addGestureRecognizer(swipeLeft)
+        
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        swipeDown.direction = UISwipeGestureRecognizerDirection.down
+        self.view.addGestureRecognizer(swipeDown)
+        
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        swipeUp.direction = UISwipeGestureRecognizerDirection.up
+        self.view.addGestureRecognizer(swipeUp)
+        
     }
+    
+    func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizerDirection.right:
+                print("Swiped right")
+               
+            case UISwipeGestureRecognizerDirection.down:
+                print("Swiped down")
+                
+            case UISwipeGestureRecognizerDirection.left:
+                print("Swiped left")
+                 performSegue(withIdentifier: "ToComposeSegue", sender: UISwipeGestureRecognizerDirection.left)
+            case UISwipeGestureRecognizerDirection.up:
+                print("Swiped up")
+                
+            default:
+                break
+            }
+        }
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
