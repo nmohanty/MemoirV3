@@ -26,7 +26,7 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
     
     var fadeTransition: FadeTransition!
     
-    //var bubbleTransition: BubbleTransition!
+    var bubbleTransition: BubbleTransition!
     
     
     
@@ -36,10 +36,10 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
     var notes: [Note]!
     var currentNote: Note!
     
-    var imageView: UIImageView!
+    var image: UIImage!
     var bubbleOriginalCenter: CGPoint!
     var viewOriginalCenter: CGPoint!
-    var countLabel: UILabel!
+    //var countLabel: UILabel!
     
     
     //var currentCharacterCount: Int!
@@ -56,8 +56,8 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
         //        print(notes)
         blackBox.alpha = 0
         bubbleOriginalCenter = bubbleImageView.center
-        imageView.image = bubbleImageView.image
-        countLabel.text = postWords.text
+        
+        //countLabel.text = postWords.text
         postWords.center = bubbleImageView.center
         wordstxtLabel.center.y = bubbleImageView.center.y - 100
         viewOriginalCenter = containerView.center
@@ -117,9 +117,10 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
             switch swipeGesture.direction {
             case UISwipeGestureRecognizerDirection.right:
                 print("Swiped right")
-                
+                performSegue(withIdentifier: "TimelineSegue", sender: UISwipeGestureRecognizerDirection.down)
             case UISwipeGestureRecognizerDirection.down:
                 print("Swiped down")
+                
             case UISwipeGestureRecognizerDirection.left:
                 print("Swiped left")
             case UISwipeGestureRecognizerDirection.up:
