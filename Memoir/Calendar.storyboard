@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="TL0-Gm-Yt7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="TnJ-ot-tEr">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -81,12 +81,8 @@
                                 <rect key="frame" x="105" y="8" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Back to Today"/>
-                                <connections>
-                                    <action selector="didTapTodayButton:" destination="MCm-SB-Hz7" eventType="touchUpInside" id="nMk-jb-TJK"/>
-                                    <action selector="onTapButtonTest:" destination="MCm-SB-Hz7" eventType="touchUpInside" id="pAQ-J1-V3i"/>
-                                </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" id="lo5-I2-h6d">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="lo5-I2-h6d">
                                 <rect key="frame" x="70" y="471" width="180" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
@@ -110,55 +106,55 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vb3-mK-3Io" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="80" y="-15"/>
+            <point key="canvasLocation" x="-490" y="194"/>
         </scene>
         <!--Calendar View Controller-->
-        <scene sceneID="gSB-Dv-DWo">
+        <scene sceneID="kC6-kJ-god">
             <objects>
-                <viewController id="MCm-SB-Hz7" customClass="CalendarViewController" customModule="NSuserdefaultDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="KVG-eZ-kof">
+                <viewController id="TnJ-ot-tEr" customClass="CalendarViewController" customModule="NSuserdefaultDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YEs-Oz-VRC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="9AS-Gp-thr">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="60m-tL-heZ">
                                 <rect key="frame" x="0.0" y="178" width="375" height="264"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bbU-Vq-dFJ">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vrm-1s-7mR">
                                     <size key="itemSize" width="53" height="264"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CalendarCell" id="SN8-Hp-jlo" customClass="CalendarCell" customModule="NSuserdefaultDemo" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CalendarCell" id="Dr6-mK-uVy" customClass="CalendarCell" customModule="NSuserdefaultDemo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="53" height="264"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="53" height="264"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t2t-qn-wgb">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8fA-C9-MH0">
                                                     <rect key="frame" x="10" y="8" width="34" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.72549019609999998" green="1" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3Q3-CH-8NV">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="adb-iq-lUf">
                                                     <rect key="frame" x="10" y="37" width="31" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.72549019609999998" green="1" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" id="KdB-b4-OSf">
+                                                <view contentMode="scaleToFill" id="YUr-0r-h3J">
                                                     <rect key="frame" x="9" y="77" width="32" height="32"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.71940469740000001" green="0.82291382550000003" blue="0.99752801660000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <gestureRecognizers/>
                                                 </view>
-                                                <view contentMode="scaleToFill" id="g2C-bP-90t">
+                                                <view contentMode="scaleToFill" id="ZkF-6G-0MP">
                                                     <rect key="frame" x="9" y="143" width="32" height="32"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.69647872450000003" green="1" blue="0.83330690860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -166,53 +162,53 @@
                                             </subviews>
                                         </view>
                                         <connections>
-                                            <outlet property="dateLabel" destination="3Q3-CH-8NV" id="llo-AH-Pui"/>
-                                            <outlet property="dayLabel" destination="t2t-qn-wgb" id="WKS-Lw-zS9"/>
-                                            <outlet property="entriesCountView" destination="g2C-bP-90t" id="dH2-SZ-f0K"/>
-                                            <outlet property="wordCountView" destination="KdB-b4-OSf" id="1oJ-SR-bha"/>
+                                            <outlet property="dateLabel" destination="adb-iq-lUf" id="vEk-mj-PJV"/>
+                                            <outlet property="dayLabel" destination="8fA-C9-MH0" id="aRJ-Vk-d5W"/>
+                                            <outlet property="entriesCountView" destination="ZkF-6G-0MP" id="ElK-is-TS9"/>
+                                            <outlet property="wordCountView" destination="YUr-0r-h3J" id="qqm-tW-6S4"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="scA-aA-fO8">
-                                <rect key="frame" x="16" y="27" width="26" height="23"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cg5-7f-3Mn">
+                                <rect key="frame" x="16" y="20" width="26" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Settings-1"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xAH-Fe-GRg">
-                                <rect key="frame" x="331" y="27" width="32" height="32"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Li5-9o-xEG">
+                                <rect key="frame" x="278" y="20" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Pen"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VwP-zw-7uG">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vHd-2P-H7a">
                                 <rect key="frame" x="15" y="478" width="47" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.85872977969999997" green="0.85887759919999995" blue="0.85872042179999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bOd-UO-JR1">
-                                <rect key="frame" x="71" y="518" width="178" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eea-GF-peh">
+                                <rect key="frame" x="64" y="518" width="178" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Go To Google Calendar"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DECEMBER 2016" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="swb-Fn-NJJ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DECEMBER 2016" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PMm-9h-q41">
                                 <rect key="frame" x="60" y="68" width="200" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
                                 <color key="textColor" red="0.72549019609999998" green="1" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TAg-6C-VmP">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yVP-bB-abP">
                                 <rect key="frame" x="105" y="8" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Back to Today"/>
                                 <connections>
-                                    <action selector="didTapTodayButton:" destination="MCm-SB-Hz7" eventType="touchUpInside" id="QCU-LU-4MR"/>
-                                    <action selector="onTapButtonTest:" destination="MCm-SB-Hz7" eventType="touchUpInside" id="q15-pu-Mut"/>
+                                    <action selector="didTapTodayButton:" destination="TnJ-ot-tEr" eventType="touchUpInside" id="h3o-Zj-rQS"/>
+                                    <action selector="onTapButtonTest:" destination="TnJ-ot-tEr" eventType="touchUpInside" id="c6v-kc-x8d"/>
                                 </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" id="DO9-9G-N0z">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" id="wcW-Yl-Xyi">
                                 <rect key="frame" x="70" y="471" width="180" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
@@ -226,17 +222,17 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="collectionView" destination="9AS-Gp-thr" id="nIA-2A-IsE"/>
+                        <outlet property="collectionView" destination="60m-tL-heZ" id="LXl-Jh-9S9"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ORW-1G-QhS" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="4KO-sd-g0E">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J0T-dw-QpD" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="B2S-lB-cA5">
                     <connections>
-                        <action selector="onTapBubbleWord:" destination="MCm-SB-Hz7" id="joh-zc-Ek0"/>
+                        <action selector="onTapBubbleWord:" destination="TnJ-ot-tEr" id="K2a-m1-uGp"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="521" y="-15"/>
+            <point key="canvasLocation" x="64" y="194"/>
         </scene>
     </scenes>
     <resources>

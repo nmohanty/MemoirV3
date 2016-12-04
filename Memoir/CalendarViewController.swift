@@ -153,10 +153,10 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     }
     
     @IBAction func onTapButtonTest(_ sender: UIButton) {
-        performSegue(withIdentifier: "DayCalToTodaySegue", sender: nil)
+        performSegue(withIdentifier: "WeekToTodaySegue", sender: nil)
     }
     @IBAction func onTapBubbleWord(_ sender: UITapGestureRecognizer) {
-        performSegue(withIdentifier: "DayCalToTodaySegue", sender: nil)
+        performSegue(withIdentifier: "WeekToTodaySegue", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -219,3 +219,11 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     
     
 }
+
+
+
+
+
+
+
+

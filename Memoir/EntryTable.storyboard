@@ -68,7 +68,7 @@
         <!--Saved Entries View Controller-->
         <scene sceneID="gf1-7E-8sW">
             <objects>
-                <viewController id="Prw-3d-XfF" customClass="SavedEntriesViewController" customModule="NSuserdefaultDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Prw-3d-XfF" customClass="SavedEntriesViewController" customModule="Memoir" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dYo-Yu-U5M"/>
                         <viewControllerLayoutGuide type="bottom" id="FBH-tU-SiL"/>
@@ -117,7 +117,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DayTableViewCell" rowHeight="86" id="Q5Y-rf-Y2O" customClass="DayTableViewCell" customModule="NSuserdefaultDemo" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DayTableViewCell" rowHeight="86" id="Q5Y-rf-Y2O" customClass="DayTableViewCell" customModule="Memoir" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="321" height="86"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Q5Y-rf-Y2O" id="qAC-2C-Pzt">

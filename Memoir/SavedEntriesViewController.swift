@@ -26,7 +26,7 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
     
     var fadeTransition: FadeTransition!
     
-    var bubbleTransition: BubbleTransition!
+    //var bubbleTransition: BubbleTransition!
     
     
     
@@ -222,6 +222,7 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
                     0, usingSpringWithDamping:
                     0.5, initialSpringVelocity:
                     1, options: [], animations: {
+                        self.containerView.alpha = 1
                         self.containerView.center = self.viewOriginalCenter
                         self.view.center = self.viewOriginalCenter
                         self.bubbleImageView.center = self.bubbleOriginalCenter
