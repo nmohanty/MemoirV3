@@ -95,21 +95,19 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
         // print("\(current_date)")
         
         //add swipe gesture initialisers
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        /*let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
         swipeRight.direction = UISwipeGestureRecognizerDirection.right
         self.view.addGestureRecognizer(swipeRight)
         
         let swipeLeft = UISwipeGestureRecognizer(target:self, action:#selector(self.respondToSwipeGesture))
         swipeLeft.direction = UISwipeGestureRecognizerDirection.left
         self.view.addGestureRecognizer(swipeLeft)
-        
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
         swipeDown.direction = UISwipeGestureRecognizerDirection.down
         self.view.addGestureRecognizer(swipeDown)
-        
         let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
         swipeUp.direction = UISwipeGestureRecognizerDirection.up
-        self.view.addGestureRecognizer(swipeUp)
+        self.view.addGestureRecognizer(swipeUp)*/
         
     }
     
@@ -118,15 +116,13 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
             switch swipeGesture.direction {
             case UISwipeGestureRecognizerDirection.right:
                 print("Swiped right")
-                performSegue(withIdentifier: "TimelineSegue", sender: UISwipeGestureRecognizerDirection.down)
             case UISwipeGestureRecognizerDirection.down:
                 print("Swiped down")
-                
             case UISwipeGestureRecognizerDirection.left:
                 print("Swiped left")
             case UISwipeGestureRecognizerDirection.up:
                 print("Swiped up")
-                
+                performSegue(withIdentifier: "BackToComposeSegue", sender: UISwipeGestureRecognizerDirection.up)
             default:
                 break
             }
@@ -300,7 +296,7 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
             composeViewController.transitioningDelegate = fadeTransition
             
             // Adjust the transition duration. (seconds)
-            fadeTransition.duration = 1.0
+            fadeTransition.duration = 0.2
             
             
             composeViewController.appendedNotes = notes
