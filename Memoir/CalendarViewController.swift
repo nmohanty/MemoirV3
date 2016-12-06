@@ -27,6 +27,14 @@ class Entry: NSObject {
 
 class CalendarViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
+    // AFDateHelper
+    let now = Date()
+    var date = Date()
+    
+    var sections:[String] = []
+    var items:[[TableItem]] = []
+    var sectionItems = [TableItem]()
+    
     @IBOutlet var containerView: UIView!
     @IBOutlet weak var calendarControl: UISegmentedControl!
     
@@ -76,8 +84,10 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
                     // Move down. Adjust to taste.
                     let transformYTranslationTargetValue = CGFloat(-105.0)
                     var transform = CGAffineTransform.identity
+                    
                     transform = transform.translatedBy(x: transformXTranslationTargetValue, y: transformYTranslationTargetValue)
                     transform = transform.scaledBy(x:transformScaleTargetValue, y:transformScaleTargetValue)
+                    
                     self.bubbleImage.transform = transform
                     self.postWords.transform = transform
                     
@@ -105,7 +115,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         //imageView.center = bubbleOriginalCenter
         
         
-        let gregorianCalendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)
+        /*let gregorianCalendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)
         
         let dateComponents = NSDateComponents()
         dateComponents.day = 8
@@ -120,7 +130,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
             
             print(weekday)
             print(date)
-            print(month)
+            print(month)*/
             // 5, which corresponds to Thursday in the Gregorian Calendar
             
             
@@ -155,9 +165,67 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
             //var doubleTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "didDoubleTapCollectionView:")
             //doubleTapGesture.numberOfTapsRequired = 2  // add double tap
             
-            collectionView.isUserInteractionEnabled = true
-            collectionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tap)))
-        }
+        collectionView.isUserInteractionEnabled = true
+        collectionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tap)))
+        
+        ////// From DateHelper extension
+        
+        
+        // Not sure how Section works for CollectionView ???
+        sections.append(now.monthToString()) // DECEMBER
+        var sectionItems = [TableItem]()
+        
+        
+        
+        
+        // Ideally we want to register 1. When the user sign in the first time
+        // So that it will start the calendar, until today's date
+        
+        
+       /* // Today-9
+        date = now.dateBySubtractingDays(9)
+        sectionItems.append(TableItem(month: date.monthToString(), weekDay: date.shortWeekdayToString(), weekDate: date.toString(.custom("d"))))
+        
+        // Today-8
+        date = now.dateBySubtractingDays(8)
+        sectionItems.append(TableItem(month: date.monthToString(), weekDay: date.shortWeekdayToString(), weekDate: date.toString(.custom("d"))))
+        
+        // Today-7
+        date = now.dateBySubtractingDays(7)
+        sectionItems.append(TableItem(month: date.monthToString(), weekDay: date.shortWeekdayToString(), weekDate: date.toString(.custom("d"))))
+        
+        // Today-6
+        date = now.dateBySubtractingDays(6)
+        sectionItems.append(TableItem(month: date.monthToString(), weekDay: date.shortWeekdayToString(), weekDate: date.toString(.custom("d"))))
+        
+        // Today-5
+        date = now.dateBySubtractingDays(5)
+        sectionItems.append(TableItem(month: date.monthToString(), weekDay: date.shortWeekdayToString(), weekDate: date.toString(.custom("d"))))*/
+        
+        // Today-4
+        date = now.dateBySubtractingDays(4)
+        sectionItems.append(TableItem(month: date.monthToString(), weekDay: date.shortWeekdayToString(), weekDate: date.toString(.custom("d"))))
+        
+        // Today-3
+        date = now.dateBySubtractingDays(3)
+        sectionItems.append(TableItem(month: date.monthToString(), weekDay: date.shortWeekdayToString(), weekDate: date.toString(.custom("d"))))
+        
+        // Today-2
+        date = now.dateBySubtractingDays(2)
+        sectionItems.append(TableItem(month: date.monthToString(), weekDay: date.shortWeekdayToString(), weekDate: date.toString(.custom("d"))))
+        
+        // Yesterday
+        date = now.dateBySubtractingDays(1)
+        sectionItems.append(TableItem(month: date.monthToString(), weekDay: date.shortWeekdayToString(), weekDate: date.toString(.custom("d"))))
+        
+        // Today
+        date = now
+        sectionItems.append(TableItem(month: date.monthToString(), weekDay: date.shortWeekdayToString(), weekDate: date.toString(.custom("d"))))
+        
+      
+        
+        
+        items.append(sectionItems)
         
         //add swipe gesture initialisers
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
@@ -233,7 +301,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
             savedentriesViewController.transitioningDelegate = fadeTransition
             
             // Adjust the transition duration. (seconds)
-            fadeTransition.duration = 3.7
+            fadeTransition.duration = 3.0
             
             savedentriesViewController.notes = appendedNotes
             savedentriesViewController.notes = notes
@@ -274,21 +342,35 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+    // From DateHelper file
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return items.count
     }
     
+    
+    func collectionView(_ collectionView: UICollectionView, titleForHeaderInSection section: Int) -> String? {
+        return sections[section]
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+       return 5
+        //return items[section].count
+    }
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeekCalendarCell", for: indexPath) as! WeekCalendarCell
+        let item = items[(indexPath as NSIndexPath).section][(indexPath as NSIndexPath).row]
+        //cell.monthLabel.text = item.month
+        cell.dayLabel.text = item.weekDay
+        cell.dateLabel.text = item.weekDate
         
-        cell.dayLabel.text = "Mon"
-        cell.dateLabel.text = "7"
         let originalWordCountCenter = cell.wordCountView.center
         var sizeMultiplier = indexPath.item
         if sizeMultiplier > 20 {
             sizeMultiplier = 20
         }
-        cell.wordCountView.frame.size = CGSize(width: 1 * sizeMultiplier + 10, height: 1 * sizeMultiplier + 10)
+        cell.wordCountView.frame.size = CGSize(width: 1 * sizeMultiplier + 20, height: 1 * sizeMultiplier + 20)
         
         cell.wordCountView.center = originalWordCountCenter
         
