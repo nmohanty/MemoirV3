@@ -31,12 +31,13 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
     
     
     @IBOutlet weak var containerView: UIView!
+    
     @IBOutlet weak var blackBox: UIView!
     @IBOutlet weak var bubbleImageView: UIImageView!
     var notes: [Note]!
     var currentNote: Note!
     
-    var image: UIImage!
+    var imageBubble: UIImage!
     var bubbleOriginalCenter: CGPoint!
     var viewOriginalCenter: CGPoint!
     //var countLabel: UILabel!
@@ -57,7 +58,7 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
         blackBox.alpha = 0
         bubbleOriginalCenter = bubbleImageView.center
         
-        //countLabel.text = postWords.text
+        let imageBubble =  bubbleImageView.image
         postWords.center = bubbleImageView.center
         wordstxtLabel.center.y = bubbleImageView.center.y - 100
         viewOriginalCenter = containerView.center
@@ -183,13 +184,32 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
         else if sender.state == .changed {
             
             //called cont as we pan
-            bubbleImageView.center = CGPoint(x: bubbleOriginalCenter.x, y: bubbleOriginalCenter.y + translation.y)
+            //            bubbleImageView.center = CGPoint(x: bubbleOriginalCenter.x, y: bubbleOriginalCenter.y + translation.y)
             postWords.center = bubbleImageView.center
+            // A percentage of the original size. Adjust to taste.
+            let transformScaleTargetValue = CGFloat(1.0/6.0)
+            // Move to the right. Adjust to taste.
+            let transformXTranslationTargetValue = CGFloat(57.0)
+            // Move down. Adjust to taste.
+            let transformYTranslationTargetValue = CGFloat(105.0)
+            
+            let transformScaleValue = convertValue(inputValue: translation.y, r1Min: 0, r1Max: 100, r2Min: 1.0, r2Max: transformScaleTargetValue)
+            let transformXTranslationValue = convertValue(inputValue: translation.y, r1Min: 0, r1Max: 100, r2Min: 0, r2Max: transformXTranslationTargetValue)
+            let transformYTranslationValue = convertValue(inputValue: translation.y, r1Min: 0, r1Max: 100, r2Min: 0, r2Max: transformYTranslationTargetValue)
+            
+            var transform = CGAffineTransform.identity
+            transform = transform.translatedBy(x: transformXTranslationValue, y: transformYTranslationValue)
+            transform = transform.scaledBy(x:transformScaleValue, y:transformScaleValue)
+            bubbleImageView.transform = transform
+            postWords.transform = transform
+            
+            
+            
             wordstxtLabel.center.y = bubbleImageView.center.y - 100
             containerView.center = CGPoint(x: self.view.center.x, y: self.view.center.y + translation.y)
             if translation.y > 0 && translation.y < 100 {
                 blackBox.alpha = 0
-                containerView.alpha = convertValue(inputValue: translation.y, r1Min: 0, r1Max: 100, r2Min: 1, r2Max: 0.4)
+                containerView.alpha = convertValue(inputValue: translation.y, r1Min: 0, r1Max: 100, r2Min: 1, r2Max: 0.1)
                 
             }
             else
@@ -222,12 +242,14 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
                     0, usingSpringWithDamping:
                     0.5, initialSpringVelocity:
                     1, options: [], animations: {
-                        self.containerView.alpha = 1
                         self.containerView.center = self.viewOriginalCenter
                         self.view.center = self.viewOriginalCenter
                         self.bubbleImageView.center = self.bubbleOriginalCenter
                         self.postWords.center = self.bubbleImageView.center
                         self.wordstxtLabel.center.y = self.bubbleImageView.center.y - 100
+                        self.containerView.alpha = 1
+                        self.postWords.transform = CGAffineTransform.identity
+                        self.bubbleImageView.transform = CGAffineTransform.identity
                 }, completion: nil)
             }
                 

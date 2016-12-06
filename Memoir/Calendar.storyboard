@@ -111,7 +111,7 @@
         <!--Calendar View Controller-->
         <scene sceneID="kC6-kJ-god">
             <objects>
-                <viewController id="TnJ-ot-tEr" customClass="CalendarViewController" customModule="NSuserdefaultDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="TnJ-ot-tEr" customClass="CalendarViewController" customModule="Memoir" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YEs-Oz-VRC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -127,7 +127,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CalendarCell" id="Dr6-mK-uVy" customClass="CalendarCell" customModule="NSuserdefaultDemo" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CalendarCell" id="Dr6-mK-uVy" customClass="CalendarCell" customModule="Memoir" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="53" height="264"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -223,6 +223,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="60m-tL-heZ" id="LXl-Jh-9S9"/>
+                        <segue destination="uHe-jQ-7Nv" kind="modal" identifier="WeekToTodaySegue" id="WgT-mf-gbe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J0T-dw-QpD" sceneMemberID="firstResponder"/>
@@ -233,6 +234,14 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="64" y="194"/>
+        </scene>
+        <!--EntryTable-->
+        <scene sceneID="KXb-2f-MsJ">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="EntryTable" storyboardName="EntryTable" id="uHe-jQ-7Nv" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="802-UL-VhX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="20" y="746"/>
         </scene>
     </scenes>
     <resources>

@@ -29,6 +29,9 @@ class SignupViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onTapNewuser(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "SignupToLoginSegue", sender: nil)
+    }
 
     @IBAction func onTapView(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)

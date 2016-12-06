@@ -28,6 +28,10 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func didTapNewUser(_ sender: Any) {
+        self.performSegue(withIdentifier: "LoginToSignupSegue", sender: nil)
+        print("Welcome, you are logged in")
+    }
     
     @IBAction func onDidTapLogin(_ sender: UIButton) {
         

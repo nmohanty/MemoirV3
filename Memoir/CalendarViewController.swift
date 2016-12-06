@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class Entry: NSObject {
     var text: String = ""
@@ -38,6 +39,17 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     
     var appendedNotes: [Note] = [Note]()
     
+    func tap(sender: UITapGestureRecognizer){
+        
+        if let indexPath = self.collectionView?.indexPathForItem(at: sender.location(in: self.collectionView)) {
+            let cell = self.collectionView?.cellForItem(at: indexPath)
+            print("you can do something with the cell or index path here")
+        } else {
+            print("collection view was tapped")
+        }
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,8 +76,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
             print(date)
             print(month)
             // 5, which corresponds to Thursday in the Gregorian Calendar
-            
-            
+            collectionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tap)))
         }
         
         //  let unitFlags: NSCalendar.Unit = [.hour, .day, .month, .year]
