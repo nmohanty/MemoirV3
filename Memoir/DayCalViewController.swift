@@ -356,7 +356,7 @@ class DayCalViewController: UIViewController, UICollectionViewDataSource, UIColl
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CalendarCell", for: indexPath) as! CalendarCell
         let item = items[(indexPath as NSIndexPath).section][(indexPath as NSIndexPath).row]
-        //cell.monthLabel.text = item.month
+        cell.monthLabel.text = item.month
         cell.dayLabel.text = item.weekDay
         cell.dateLabel.text = item.weekDate
         

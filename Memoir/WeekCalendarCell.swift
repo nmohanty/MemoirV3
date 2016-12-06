@@ -1,22 +1,20 @@
 //
-//  CalendarCell.swift
+//  WeekCalendarCell.swift
 //  Memoir
 //
-//  Created by Namrata Mohanty on 12/1/16.
+//  Created by Namrata Mohanty on 12/5/16.
 //
 //
 
 import UIKit
 
-class CalendarCell: UICollectionViewCell {
+class WeekCalendarCell: UICollectionViewCell {
     
-    @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var wordCountView: UIView!
     @IBOutlet weak var entriesCountView: UIView!
     
-    
-    
+
     
 }

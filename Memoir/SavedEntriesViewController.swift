@@ -7,17 +7,15 @@
 //
 
 import UIKit
-import Foundation
 
 
-
-extension Date {
+/*extension Date {
     func toString() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM dd yyyy"
         return dateFormatter.string(from: self)
     }
-}
+}*/
 
 class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -34,7 +32,7 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBOutlet weak var containerView: UIView!
     
-    @IBOutlet weak var blackBox: UIView!
+    //@IBOutlet weak var blackBox: UIView!
     @IBOutlet weak var bubbleImageView: UIImageView!
     var notes: [Note]!
     var currentNote: Note!
@@ -57,7 +55,7 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
         //        notes.append(currentNote)
         //        print(notes)
-        blackBox.alpha = 0
+        //blackBox.alpha = 0
         bubbleOriginalCenter = bubbleImageView.center
         
         let imageBubble =  bubbleImageView.image
@@ -113,10 +111,6 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
         swipeUp.direction = UISwipeGestureRecognizerDirection.up
         self.view.addGestureRecognizer(swipeUp)
         
-    }
-    
-    @IBAction func didTapComposeButton(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "BackToComposeSegue", sender: nil)
     }
     
     func respondToSwipeGesture(gesture: UIGestureRecognizer) {
@@ -193,9 +187,9 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
             //            bubbleImageView.center = CGPoint(x: bubbleOriginalCenter.x, y: bubbleOriginalCenter.y + translation.y)
             postWords.center = bubbleImageView.center
             // A percentage of the original size. Adjust to taste.
-            let transformScaleTargetValue = CGFloat(1.0/6.0)
+            let transformScaleTargetValue = CGFloat(1.0/7.0)
             // Move to the right. Adjust to taste.
-            let transformXTranslationTargetValue = CGFloat(57.0)
+            let transformXTranslationTargetValue = CGFloat(63.0)
             // Move down. Adjust to taste.
             let transformYTranslationTargetValue = CGFloat(105.0)
             
@@ -214,20 +208,20 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
             wordstxtLabel.center.y = bubbleImageView.center.y - 100
             containerView.center = CGPoint(x: self.view.center.x, y: self.view.center.y + translation.y)
             if translation.y > 0 && translation.y < 100 {
-                blackBox.alpha = 0
+                // blackBox.alpha = 0
                 containerView.alpha = convertValue(inputValue: translation.y, r1Min: 0, r1Max: 100, r2Min: 1, r2Max: 0.1)
                 
             }
             else
             {
-                blackBox.alpha = 0
+                //blackBox.alpha = 0
                 containerView.alpha = convertValue(inputValue: translation.y, r1Min: 0, r1Max: -100, r2Min: 1, r2Max: 0.4)
                 UIView.animate(withDuration:
                     0.8, delay:
                     0, usingSpringWithDamping:
                     0.5, initialSpringVelocity:
                     1, options: [], animations: {
-                        self.blackBox.isHidden = false
+                        // self.blackBox.isHidden = false
                         self.containerView.alpha = 0
                         
                 }, completion: nil)
@@ -241,7 +235,7 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
             //called once
             if translation.y < 100 {
                 
-                blackBox.isHidden = true
+                //blackBox.isHidden = true
                 
                 UIView.animate(withDuration:
                     0.4, delay:
@@ -261,14 +255,12 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
                 
             else
             {
-                print("dismiss on scroll")
-                
                 UIView.animate(withDuration:
                     0.8, delay:
                     0, usingSpringWithDamping:
                     0.5, initialSpringVelocity:
                     1, options: [], animations: {
-                        self.blackBox.isHidden = false
+                        //  self.blackBox.isHidden = false
                         self.containerView.alpha = 0
                         
                 }, completion: nil)
@@ -288,13 +280,12 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
             calendarViewController.modalPresentationStyle = UIModalPresentationStyle.custom
             fadeTransition = FadeTransition()
             calendarViewController.transitioningDelegate = fadeTransition
-            fadeTransition.duration = 1.0
+            fadeTransition.duration = 2.5
             calendarViewController.appendedNotes = notes
             calendarViewController.notes = notes
             calendarViewController.lastPostCount = todayPostCount
             calendarViewController.lastWordCount = todayWordCount
             
-            //calendarViewController.imageView.image = self.imageView.image
         }
         else{
             let composeViewController = segue.destination as! ComposeViewController
@@ -323,6 +314,10 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
         
     }
     
+    @IBAction func didTapCompose(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "BackToComposeSegue", sender: nil)
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

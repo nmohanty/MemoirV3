@@ -279,7 +279,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CalendarCell", for: indexPath) as! CalendarCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeekCalendarCell", for: indexPath) as! WeekCalendarCell
         
         cell.dayLabel.text = "Mon"
         cell.dateLabel.text = "7"

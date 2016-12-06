@@ -25,6 +25,7 @@
 		9355BBD71DF4B18000A69FBE /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9355BBD61DF4B18000A69FBE /* Common.swift */; };
 		9355BBDD1DF665A600A69FBE /* DayCalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9355BBDC1DF665A600A69FBE /* DayCalViewController.swift */; };
 		9355BBDF1DF6745000A69FBE /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9355BBDE1DF6745000A69FBE /* DateHelper.swift */; };
+		9355BBE11DF6897C00A69FBE /* WeekCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9355BBE01DF6897C00A69FBE /* WeekCalendarCell.swift */; };
 		936AEC881DEFBAE600900831 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936AEC871DEFBAE600900831 /* AppDelegate.swift */; };
 		936AEC8D1DEFBAE600900831 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 936AEC8B1DEFBAE600900831 /* Main.storyboard */; };
 		936AEC8F1DEFBAE600900831 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 936AEC8E1DEFBAE600900831 /* Assets.xcassets */; };
@@ -73,6 +74,7 @@
 		9355BBD61DF4B18000A69FBE /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		9355BBDC1DF665A600A69FBE /* DayCalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayCalViewController.swift; sourceTree = "<group>"; };
 		9355BBDE1DF6745000A69FBE /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		9355BBE01DF6897C00A69FBE /* WeekCalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekCalendarCell.swift; sourceTree = "<group>"; };
 		936AEC841DEFBAE600900831 /* Memoir.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memoir.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		936AEC871DEFBAE600900831 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		936AEC8C1DEFBAE600900831 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				9335AB391DF0F99B007D46F4 /* CalendarViewController.swift */,
 				9335AB3D1DF1025F007D46F4 /* CalendarCell.swift */,
 				9355BBDC1DF665A600A69FBE /* DayCalViewController.swift */,
+				9355BBE01DF6897C00A69FBE /* WeekCalendarCell.swift */,
 			);
 			name = Calendar;
 			sourceTree = "<group>";
@@ -545,6 +548,7 @@
 			files = (
 				9335AB3A1DF0F99B007D46F4 /* CalendarViewController.swift in Sources */,
 				9335AB3E1DF1025F007D46F4 /* CalendarCell.swift in Sources */,
+				9355BBE11DF6897C00A69FBE /* WeekCalendarCell.swift in Sources */,
 				9335AB351DF0E7F0007D46F4 /* BaseTransition.swift in Sources */,
 				9335AB191DEFCFC4007D46F4 /* LoginViewController.swift in Sources */,
 				9335AB271DF0B91C007D46F4 /* DayTableViewCell.swift in Sources */,
