@@ -1,13 +1,13 @@
 //
 //  SavedEntriesViewController.swift
-//  Memoir
+//  NSuserdefaultDemo
 //
-//  Created by Namrata Mohanty on 12/1/16.
-//  Copyright © 2016 Memoir All rights reserved.
+//  Created by Namrata Mohanty on 11/27/16.
+//  Copyright © 2016 MOS360. All rights reserved.
 //
 
 import UIKit
-import Parse
+
 
 extension Date {
     func toString() -> String {
@@ -111,6 +111,10 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
         swipeUp.direction = UISwipeGestureRecognizerDirection.up
         self.view.addGestureRecognizer(swipeUp)
         
+    }
+    
+    @IBAction func didTapComposeButton(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "BackToComposeSegue", sender: nil)
     }
     
     func respondToSwipeGesture(gesture: UIGestureRecognizer) {

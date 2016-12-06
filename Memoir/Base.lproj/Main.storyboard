@@ -72,7 +72,7 @@
                                         <color key="textColor" red="0.85872977969999997" green="0.85887759919999995" blue="0.85872042179999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3Zh-1w-8iG">
+                                    <button opaque="NO" alpha="0.0" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3Zh-1w-8iG">
                                         <rect key="frame" x="697" y="407" width="212" height="41"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
@@ -329,7 +329,7 @@
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="H4x-cP-gdZ" kind="modal" identifier="ToComposeSegue" modalTransitionStyle="crossDissolve" id="Vbb-vk-JEG"/>
+                        <segue destination="H4x-cP-gdZ" kind="modal" identifier="ToComposeSegue" id="Vbb-vk-JEG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gk0-dU-ySz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -355,8 +355,8 @@
         <simulatedScreenMetrics key="destination" type="retina4_0.fullscreen"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="X2H-rm-bFz"/>
-        <segue reference="sij-gA-1k3"/>
+        <segue reference="KY4-YK-ffc"/>
+        <segue reference="ba2-We-0Qc"/>
         <segue reference="Aap-q2-9Tj"/>
     </inferredMetricsTieBreakers>
 </document>

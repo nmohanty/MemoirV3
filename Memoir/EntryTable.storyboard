@@ -68,7 +68,7 @@
         <!--Saved Entries View Controller-->
         <scene sceneID="gf1-7E-8sW">
             <objects>
-                <viewController id="Prw-3d-XfF" customClass="SavedEntriesViewController" customModule="Memoir" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SavedEntries" id="Prw-3d-XfF" customClass="SavedEntriesViewController" customModule="Memoir" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dYo-Yu-U5M"/>
                         <viewControllerLayoutGuide type="bottom" id="FBH-tU-SiL"/>
@@ -178,6 +178,9 @@
                                 <rect key="frame" x="278" y="20" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Pen"/>
+                                <connections>
+                                    <action selector="didTapComposeButton:" destination="Prw-3d-XfF" eventType="touchUpInside" id="mVQ-Wi-edl"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>

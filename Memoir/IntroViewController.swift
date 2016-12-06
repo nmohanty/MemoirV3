@@ -24,6 +24,7 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
         scrollView.contentSize = CGSize(width: 960, height: 568)
 
         getStartedButton.alpha = 0
+        loginButton.alpha = 0
         // Do any additional setup after loading the view.
     }
     
@@ -43,6 +44,9 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
         }
         else {
             getStartedButton.alpha = 0
+            loginButton.alpha = 0
+
+            
         }
         
         //Calculate the page we are on based on x coordinate position and width of scroll view
@@ -59,6 +63,7 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
         if page == 2 {
             self.pageControl.isHidden = true
             UIView.animate(withDuration: 0.18, animations: {
+                self.loginButton.alpha = 1
                 self.getStartedButton.alpha = 1
             })
             
