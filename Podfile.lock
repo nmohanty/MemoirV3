@@ -1,15 +1,18 @@
 PODS:
+  - AFDateHelper (3.5.3)
   - Bolts/Tasks (1.8.4)
   - Parse (1.14.2):
     - Bolts/Tasks (~> 1.8)
 
 DEPENDENCIES:
+  - AFDateHelper
   - Parse
 
 SPEC CHECKSUMS:
+  AFDateHelper: e64bcc4a88a07e1d3e62442741b2a164adc02d77
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
 
-PODFILE CHECKSUM: 01a0373c562cc209905c3655825edd7e3adca486
+PODFILE CHECKSUM: 936fa2e7c495c1658ad667f9c5925c4f54c740d8
 
 COCOAPODS: 1.1.1

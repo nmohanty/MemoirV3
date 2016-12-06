@@ -7,6 +7,7 @@ target 'Memoir' do
 
   # Pods for Memoir
 pod 'Parse'
+pod "AFDateHelper"
 
   target 'MemoirTests' do
     inherit! :search_paths
