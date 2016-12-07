@@ -60,7 +60,7 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
         
         let imageBubble =  bubbleImageView.image
         postWords.center = bubbleImageView.center
-        wordstxtLabel.center.y = bubbleImageView.center.y - 100
+        //wordstxtLabel.center.y = bubbleImageView.center.y - 90
         viewOriginalCenter = containerView.center
         
         todayPostCount = notes.count
@@ -94,40 +94,8 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
         //currentDateTitleLable.text = "\(current_date)"
         // print("\(current_date)")
         
-        //add swipe gesture initialisers
-        /*let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
-        swipeRight.direction = UISwipeGestureRecognizerDirection.right
-        self.view.addGestureRecognizer(swipeRight)
-        
-        let swipeLeft = UISwipeGestureRecognizer(target:self, action:#selector(self.respondToSwipeGesture))
-        swipeLeft.direction = UISwipeGestureRecognizerDirection.left
-        self.view.addGestureRecognizer(swipeLeft)
-        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
-        swipeDown.direction = UISwipeGestureRecognizerDirection.down
-        self.view.addGestureRecognizer(swipeDown)
-        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
-        swipeUp.direction = UISwipeGestureRecognizerDirection.up
-        self.view.addGestureRecognizer(swipeUp)*/
-        
     }
     
-    func respondToSwipeGesture(gesture: UIGestureRecognizer) {
-        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
-            switch swipeGesture.direction {
-            case UISwipeGestureRecognizerDirection.right:
-                print("Swiped right")
-            case UISwipeGestureRecognizerDirection.down:
-                print("Swiped down")
-            case UISwipeGestureRecognizerDirection.left:
-                print("Swiped left")
-            case UISwipeGestureRecognizerDirection.up:
-                print("Swiped up")
-                performSegue(withIdentifier: "BackToComposeSegue", sender: UISwipeGestureRecognizerDirection.up)
-            default:
-                break
-            }
-        }
-    }
     
     
     
@@ -167,6 +135,7 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBAction func didTapPan(_ sender: UIPanGestureRecognizer) {
         let translation = sender.translation(in: view)
+        let velocity = sender.velocity(in: view)
         
         //imageView = sender.view as! UIImageView
         // imageView.frame = sender.view!.frame
@@ -196,11 +165,10 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
             var transform = CGAffineTransform.identity
             transform = transform.translatedBy(x: transformXTranslationValue, y: transformYTranslationValue)
             transform = transform.scaledBy(x:transformScaleValue, y:transformScaleValue)
+            
+            if velocity.y > 0 {
             bubbleImageView.transform = transform
             postWords.transform = transform
-            
-            
-            
             wordstxtLabel.center.y = bubbleImageView.center.y - 100
             containerView.center = CGPoint(x: self.view.center.x, y: self.view.center.y + translation.y)
             if translation.y > 0 && translation.y < 100 {
@@ -223,7 +191,7 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
                 }, completion: nil)
                 self.performSegue(withIdentifier: "ToCalendarSegue", sender: nil)
             }
-            
+            }
             //print("x: \(location.x), y: \(location.y)")
         }
             
@@ -249,7 +217,7 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
                 }, completion: nil)
             }
                 
-            else
+            else if translation.y >= 100
             {
                 UIView.animate(withDuration:
                     0.8, delay:
@@ -263,8 +231,10 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
                 self.performSegue(withIdentifier: "ToCalendarSegue", sender: nil)
             }
             
-            //print("x: \(location.x), y: \(location.y)")
-            
+            if translation.y < 0{
+            self.performSegue(withIdentifier: "BackToComposeSegue", sender: nil)
+            }
+            print("translation.y: \(translation.y)")
         }
     }
     

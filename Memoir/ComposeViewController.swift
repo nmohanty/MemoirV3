@@ -112,7 +112,6 @@ class ComposeViewController: UIViewController, UITextViewDelegate{
         
         print(notes, "The notes count is \(cumulativePostCount)")
         notes.append(currentNote)
-        headerView.backgroundColor = generateRandomRichColor()
         textView.text = ""
     }
     
@@ -122,6 +121,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate{
             case UISwipeGestureRecognizerDirection.right:
                 print("Swiped right")
             textViewDidEndEditing(textView)
+            headerView.backgroundColor = generateRandomRichColor()
             case UISwipeGestureRecognizerDirection.down:
                 print("Swiped down")
                 textView.resignFirstResponder()
@@ -205,6 +205,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate{
     
     @IBAction func didPressSend(_ sender: UIButton) {
         textViewDidEndEditing(textView)
+        headerView.backgroundColor = generateRandomRichColor()
     }
     
     
