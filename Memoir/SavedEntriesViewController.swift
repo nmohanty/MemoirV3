@@ -185,9 +185,9 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
             // A percentage of the original size. Adjust to taste.
             let transformScaleTargetValue = CGFloat(1.0/7.0)
             // Move to the right. Adjust to taste.
-            let transformXTranslationTargetValue = CGFloat(63.0)
+            let transformXTranslationTargetValue = CGFloat(192.0)
             // Move down. Adjust to taste.
-            let transformYTranslationTargetValue = CGFloat(105.0)
+            let transformYTranslationTargetValue = CGFloat(102.0)
             
             let transformScaleValue = convertValue(inputValue: translation.y, r1Min: 0, r1Max: 100, r2Min: 1.0, r2Max: transformScaleTargetValue)
             let transformXTranslationValue = convertValue(inputValue: translation.y, r1Min: 0, r1Max: 100, r2Min: 0, r2Max: transformXTranslationTargetValue)
