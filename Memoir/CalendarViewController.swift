@@ -233,7 +233,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
             savedentriesViewController.transitioningDelegate = fadeTransition
             
             // Adjust the transition duration. (seconds)
-            fadeTransition.duration = 3.7
+            fadeTransition.duration = 0.5
             
             savedentriesViewController.notes = appendedNotes
             savedentriesViewController.notes = notes
@@ -255,7 +255,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
             dayCalViewController.transitioningDelegate = fadeTransition
             
             // Adjust the transition duration. (seconds)
-            fadeTransition.duration = 1.0
+            fadeTransition.duration = 0.2
             
             dayCalViewController.appendedNotes = appendedNotes
             dayCalViewController.notes = notes
