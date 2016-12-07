@@ -80,7 +80,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
                     // A percentage of the original size. Adjust to taste.
                     let transformScaleTargetValue = CGFloat(10)
                     // Move to the right. Adjust to taste.
-                    let transformXTranslationTargetValue = CGFloat(-57.0)
+                    let transformXTranslationTargetValue = CGFloat(-190.0)
                     // Move down. Adjust to taste.
                     let transformYTranslationTargetValue = CGFloat(-105.0)
                     var transform = CGAffineTransform.identity

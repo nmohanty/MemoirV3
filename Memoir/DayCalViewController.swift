@@ -74,9 +74,9 @@ class DayCalViewController: UIViewController, UICollectionViewDataSource, UIColl
                     // A percentage of the original size. Adjust to taste.
                     let transformScaleTargetValue = CGFloat(10)
                     // Move to the right. Adjust to taste.
-                    let transformXTranslationTargetValue = CGFloat(-57.0)
+                    let transformXTranslationTargetValue = CGFloat(-180.0)
                     // Move down. Adjust to taste.
-                    let transformYTranslationTargetValue = CGFloat(-105.0)
+                    let transformYTranslationTargetValue = CGFloat(-101.0)
                     var transform = CGAffineTransform.identity
                     transform = transform.translatedBy(x: transformXTranslationTargetValue, y: transformYTranslationTargetValue)
                     transform = transform.scaledBy(x:transformScaleTargetValue, y:transformScaleTargetValue)
@@ -106,12 +106,12 @@ class DayCalViewController: UIViewController, UICollectionViewDataSource, UIColl
         //imageView.center = bubbleOriginalCenter
         
         
-        let gregorianCalendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)
+        /*let gregorianCalendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)
         
         let dateComponents = NSDateComponents()
         dateComponents.day = 8
         dateComponents.month = 11
-        dateComponents.year = 2016
+        dateComponents.year = 2016*/
         
         
         /*if let gregorianCalendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian),
