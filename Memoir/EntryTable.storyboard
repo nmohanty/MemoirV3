@@ -157,19 +157,6 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Svc-bi-aS7">
-                                                <rect key="frame" x="8" y="22" width="26" height="23"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" image="Settings-1"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCu-cZ-mPq">
-                                                <rect key="frame" x="280" y="22" width="32" height="32"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" image="Pen"/>
-                                                <connections>
-                                                    <action selector="didTapCompose:" destination="Prw-3d-XfF" eventType="touchUpInside" id="J4E-Tx-5kL"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
@@ -210,6 +197,7 @@
                         <outlet property="wordstxtLabel" destination="CUV-Oe-awx" id="rZ3-aS-Rck"/>
                         <segue destination="R40-tw-1RB" kind="presentation" identifier="BackToComposeSegue" id="PRm-Ux-KIO"/>
                         <segue destination="8Hg-Ff-eV2" kind="presentation" identifier="ToCalendarSegue" id="etM-yc-MLu"/>
+                        <segue destination="qQg-dv-Vno" kind="presentation" identifier="TodayToDetailSegue" id="Vg2-Ud-cBd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WYQ-bC-atE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -221,12 +209,59 @@
             </objects>
             <point key="canvasLocation" x="135" y="1053.1690140845071"/>
         </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="tEs-f4-VXl">
+            <objects>
+                <viewController id="qQg-dv-Vno" customClass="DetailViewController" customModule="Memoir" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3Qs-g6-kUF"/>
+                        <viewControllerLayoutGuide type="bottom" id="sCe-sW-opL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rbz-kC-Psh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N7R-ih-ciO">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.76854294540000001" green="0.76867610220000004" blue="0.76853454109999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="pT4-gC-X6b">
+                                <rect key="frame" x="168" y="583" width="39" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2VW-oM-mHw">
+                                <rect key="frame" x="20" y="24" width="40" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" image="arrow_back">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapBackArrowButton:" destination="qQg-dv-Vno" eventType="touchUpInside" id="IEQ-FN-Cb9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="pageControl" destination="pT4-gC-X6b" id="EbS-JJ-yAw"/>
+                        <outlet property="scrollView" destination="N7R-ih-ciO" id="Uln-C2-Iks"/>
+                        <segue destination="Prw-3d-XfF" kind="presentation" identifier="DetailToTodaySegue" id="LPV-dN-mEM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5yh-tc-OSL" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-838.125" y="1051.056338028169"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="Pen" width="20" height="30"/>
-        <image name="Settings-1" width="30" height="30"/>
+        <image name="arrow_back" width="24" height="22"/>
         <image name="ellipse-lg" width="1841" height="1842"/>
         <image name="ellipse-sm" width="1138" height="1138"/>
         <image name="noun_709288_cc" width="700" height="700"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="LPV-dN-mEM"/>
+    </inferredMetricsTieBreakers>
 </document>

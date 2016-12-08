@@ -48,8 +48,15 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
     var todayPostCount: Int = 0           // cumulative post count
     
     
-    
+    var index: Int!
     let cellReuseIdentifier = "cell"
+    var contentOffset: CGFloat!
+    var cellRowCount: Int!
+    
+    func tap(sender: UIGestureRecognizer){
+        self.performSegue(withIdentifier: "TodayToDetailSegue", sender: nil)
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +82,9 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.isUserInteractionEnabled = true
+        tableView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tap)))
+
         
         postWords.text = String(todayWordCount)
         
@@ -125,6 +135,9 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
          let historic_time = formatter.string(from: date)
          cell.postDateLabel.text = "\(historic_time)"*/
         
+        cell.postTextLabel.tag = indexPath.row
+        cell.postDateLabel.tag = indexPath.row
+        //then get the tag to distinguish the rows
         
         cell.postTextLabel.text = note.text
         cell.postDateLabel.text = note.date.toString()
@@ -253,6 +266,22 @@ class SavedEntriesViewController: UIViewController, UITableViewDelegate, UITable
             calendarViewController.lastWordCount = todayWordCount
             
         }
+        else  if segue.identifier == "TodayToDetailSegue"
+        {
+            let detailViewController = segue.destination as! DetailViewController
+            detailViewController.modalPresentationStyle = UIModalPresentationStyle.custom
+            fadeTransition = FadeTransition()
+            detailViewController.transitioningDelegate = fadeTransition
+            fadeTransition.duration = 2.5
+            detailViewController.numberOfEntryScreens = todayPostCount
+            detailViewController.notes = notes
+            //detailViewController.contentOffset = contentOffset
+            detailViewController.index = index
+            detailViewController.lastPostCount = todayPostCount
+            detailViewController.lastWordCount = todayWordCount
+            
+        }
+
         else{
             let composeViewController = segue.destination as! ComposeViewController
             
